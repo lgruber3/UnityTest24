@@ -18,7 +18,7 @@ public class MovementBehaviour : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
         transform.Translate(new Vector3(x, 0, z) * Time.deltaTime * 5f);
         //jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(transform.position, Vector3.down, 1.1f))
         {
             rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
