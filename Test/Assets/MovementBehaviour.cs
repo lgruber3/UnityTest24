@@ -10,6 +10,9 @@ public class MovementBehaviour : MonoBehaviour
     private float verticalRotation = 0f;
     public float upLimit = 60f;
     public float downLimit = -20f;
+	public float sprintSpeed = 2f;
+
+	public StaminaManager staminaManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +30,16 @@ public class MovementBehaviour : MonoBehaviour
             rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
         float h = horizontalSpeed * Input.GetAxis("Mouse X");
+		//sprint
+		if ((Input.GetKey(KeyCode.LeftShift)) && staminaManager.CanSprint())
+        {
+            transform.Translate(new Vector3(x, 0, z) * Time.deltaTime * horizontalSpeed * sprintSpeed);
+        }
+        else
+        {
+            transform.Translate(new Vector3(x, 0, z) * Time.deltaTime * horizontalSpeed);
+        }
+		//mouse look
         verticalRotation -= verticalSpeed * Input.GetAxis("Mouse Y");
         verticalRotation = Mathf.Clamp(verticalRotation, downLimit, upLimit);
 
