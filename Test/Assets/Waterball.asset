@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Waterball
   acquired: 1
   id: 3
+  color: {r: 0, g: 0.15127039, b: 1, a: 0}
   nextSkills: 0400000005000000

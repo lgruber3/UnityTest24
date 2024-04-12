@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Firewater
   m_EditorClassIdentifier: 
   skillName: Firewater
-  acquired: 1
+  acquired: 0
   id: 5
+  color: {r: 0.7584905, g: 0.67478156, b: 0.16457802, a: 0}
   nextSkills: 

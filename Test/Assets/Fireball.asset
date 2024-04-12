@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Fireball
   acquired: 1
   id: 1
+  color: {r: 0.7660377, g: 0.40364486, b: 0, a: 0}
   nextSkills: 0200000003000000

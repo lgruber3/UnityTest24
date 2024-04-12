@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Watergun
   acquired: 1
   id: 4
+  color: {r: 1, g: 0.050943315, b: 0.7426587, a: 0}
   nextSkills: 

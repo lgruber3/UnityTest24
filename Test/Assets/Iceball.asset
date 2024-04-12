@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Iceball
   acquired: 1
   id: 2
+  color: {r: 0, g: 1, b: 0.97622156, a: 0}
   nextSkills: 

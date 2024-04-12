@@ -8,5 +8,6 @@ public class Skill : ScriptableObject
     public string skillName;
     public bool acquired = false;
     public int id;
+    public Color color;
     public List<int> nextSkills;
 }

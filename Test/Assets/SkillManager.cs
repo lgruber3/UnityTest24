@@ -14,6 +14,7 @@ public class SkillManager : MonoBehaviour
     public GameObject panel;
     public List<Skill> skills;
     public Button skillUIPrefab;
+    public GameObject player;
     
     void Start()
     {
@@ -82,9 +83,10 @@ public class SkillManager : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log(node.skill.acquired);
+            
             if (!node.skill.acquired && (parent.skill.acquired || node.skill.skillName == root.skill.skillName))
             {
+                player.GetComponent<PlayerSKillBevhaviour>().AcquireSkill(node.skill);
                 skillUIObj.GetComponent<Image>().color = Color.red;
                 node.skill.acquired = true;
             }

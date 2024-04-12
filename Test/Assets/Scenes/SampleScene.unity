@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 1291658714}
   - component: {fileID: 1291658718}
   - component: {fileID: 1291658719}
+  - component: {fileID: 1291658720}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -1033,6 +1034,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1291658720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291658713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562515983a951244c90fc1129e10fc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399342266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1162,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c1d57857312df942940503fd0a6d140, type: 2}
   - {fileID: 11400000, guid: 344f4a921dbb33e46ae100b0e128344f, type: 2}
   skillUIPrefab: {fileID: 8143308159808644513, guid: 6f84864cd4dc21d4fb80349efd5dc750, type: 3}
+  player: {fileID: 1291658713}
 --- !u!4 &1997874962
 Transform:
   m_ObjectHideFlags: 0
