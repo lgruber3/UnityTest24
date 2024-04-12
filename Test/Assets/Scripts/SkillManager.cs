@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
@@ -12,7 +13,7 @@ public class SkillManager : MonoBehaviour
 {
     private SkillNode root;
     private Dictionary<int, SkillNode> nodes;
-    public GameObject panel;
+    [FormerlySerializedAs("panel")] public GameObject canvas;
     public List<Skill> skills;
     public Button skillUIPrefab;
     public GameObject player;
@@ -52,9 +53,9 @@ public class SkillManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Time.timeScale = panel.activeSelf ? 1 : 0;
-            panel.SetActive(!panel.activeSelf);
-            Cursor.lockState = panel.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+            Time.timeScale = canvas.activeSelf ? 1 : 0;
+            canvas.SetActive(!canvas.activeSelf);
+            Cursor.lockState = canvas.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
         }
     }
 
@@ -65,7 +66,7 @@ public class SkillManager : MonoBehaviour
             return;
         }
         
-        Button skillUIObj = Instantiate(skillUIPrefab, panel.transform);
+        Button skillUIObj = Instantiate(skillUIPrefab, canvas.transform);
         skillUIObj.GetComponentInChildren<Text>().text = node.skill.skillName;
         skillUIObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset, depth * -100+150);
         skillUIObj.GetComponent<Image>().color = Color.black;
