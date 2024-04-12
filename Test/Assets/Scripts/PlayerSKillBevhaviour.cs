@@ -28,18 +28,18 @@ public class PlayerSKillBevhaviour : MonoBehaviour
                 currentSkill = skillKeyMapping[keyNumber];
                 Debug.Log("Current skill: " + currentSkill.skillName);
             }
-
-            if (keyPressed == "j" && currentSkill != null)
-            {
-                GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                temp.transform.position = transform.position + transform.forward * 1;
-                temp.GetComponent<MeshRenderer>().material.color = currentSkill.color;
-                Rigidbody rb = temp.AddComponent<Rigidbody>();
-                rb.useGravity = false;
-                rb.AddForce(500 * transform.forward * Time.deltaTime, ForceMode.Impulse);
+        }
+        
+        if (Input.GetMouseButtonDown(0) && currentSkill != null)
+        {
+            GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            temp.transform.position = transform.position + transform.forward * 1;
+            temp.GetComponent<MeshRenderer>().material.color = currentSkill.color;
+            Rigidbody rb = temp.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.AddForce(500 * transform.forward * Time.deltaTime, ForceMode.Impulse);
                 
-                Debug.Log(currentSkill.skillName + " activated");
-            }
+            Debug.Log(currentSkill.skillName + " activated");
         }
     }
     

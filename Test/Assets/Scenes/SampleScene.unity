@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 3840, y: 2160}
@@ -1236,8 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e983b0e7ae0dffa4aa0d00dd7a94c278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 5613332947718707134, guid: b5adcc891f7eec84e9a0f7a190310a62,
-    type: 3}
+  objectToSpawn: {fileID: 5613332947718707134, guid: b5adcc891f7eec84e9a0f7a190310a62, type: 3}
   spawnRange: 10
 --- !u!114 &1166367639
 MonoBehaviour:
@@ -1448,6 +1447,7 @@ GameObject:
   - component: {fileID: 1291658718}
   - component: {fileID: 1291658719}
   - component: {fileID: 1291658720}
+  - component: {fileID: 1291658721}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -1605,6 +1605,18 @@ MonoBehaviour:
   maxStamina: 100
   staminaDecreaseRate: 35
   staminaIncreaseRate: 5
+--- !u!114 &1291658721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291658713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562515983a951244c90fc1129e10fc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399342266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1732,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1997874960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997874962}
+  - component: {fileID: 1997874961}
+  m_Layer: 0
+  m_Name: SkillManagerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1997874961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997874960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57a75472053194494588c8a92e6d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 516836027}
+  skills:
+  - {fileID: 11400000, guid: dc67f262f04811f4189068f616f00829, type: 2}
+  - {fileID: 11400000, guid: 37328eebd057fd745b856ab891649aa3, type: 2}
+  - {fileID: 11400000, guid: fedc0e216e21aff4fb3d39c1dd2d6903, type: 2}
+  - {fileID: 11400000, guid: 4c1d57857312df942940503fd0a6d140, type: 2}
+  - {fileID: 11400000, guid: 344f4a921dbb33e46ae100b0e128344f, type: 2}
+  skillUIPrefab: {fileID: 8143308159808644513, guid: 6f84864cd4dc21d4fb80349efd5dc750, type: 3}
+  player: {fileID: 1291658713}
+--- !u!4 &1997874962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997874960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001890142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,60 +2063,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135847286}
   m_CullTransparentMesh: 1
---- !u!1 &1997874960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1997874962}
-  - component: {fileID: 1997874961}
-  m_Layer: 0
-  m_Name: SkillManagerObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1997874961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997874960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d57a75472053194494588c8a92e6d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 516836027}
-  skills:
-  - {fileID: 11400000, guid: dc67f262f04811f4189068f616f00829, type: 2}
-  - {fileID: 11400000, guid: 37328eebd057fd745b856ab891649aa3, type: 2}
-  - {fileID: 11400000, guid: fedc0e216e21aff4fb3d39c1dd2d6903, type: 2}
-  - {fileID: 11400000, guid: 4c1d57857312df942940503fd0a6d140, type: 2}
-  - {fileID: 11400000, guid: 344f4a921dbb33e46ae100b0e128344f, type: 2}
-  skillUIPrefab: {fileID: 8143308159808644513, guid: 6f84864cd4dc21d4fb80349efd5dc750,
-    type: 3}
-  player: {fileID: 1291658713}
---- !u!4 &1997874962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997874960}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Cursor = UnityEngine.Cursor;
 using Image = UnityEngine.UI.Image;
 
 public class SkillManager : MonoBehaviour
@@ -51,7 +52,9 @@ public class SkillManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            Time.timeScale = panel.activeSelf ? 1 : 0;
             panel.SetActive(!panel.activeSelf);
+            Cursor.lockState = panel.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
         }
     }
 

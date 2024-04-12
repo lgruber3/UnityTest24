@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class MovementBehaviour : MonoBehaviour
@@ -15,6 +16,7 @@ public class MovementBehaviour : MonoBehaviour
 	public StaminaManager staminaManager;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
     }
 
