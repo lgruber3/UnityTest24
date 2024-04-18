@@ -12,6 +12,7 @@ public class MovementBehaviour : MonoBehaviour
     public float upLimit = 60f;
     public float downLimit = -20f;
 	public float sprintSpeed = 2f;
+    private bool isMenueActive = false;
 
 	public StaminaManager staminaManager;
     void Start()
@@ -31,7 +32,7 @@ public class MovementBehaviour : MonoBehaviour
         {
             rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
-        float h = horizontalSpeed * Input.GetAxis("Mouse X");
+        
 		//sprint
 		if ((Input.GetKey(KeyCode.LeftShift)) && staminaManager.CanSprint())
         {
@@ -42,10 +43,27 @@ public class MovementBehaviour : MonoBehaviour
             transform.Translate(new Vector3(x, 0, z) * Time.deltaTime * horizontalSpeed);
         }
 		//mouse look
-        verticalRotation -= verticalSpeed * Input.GetAxis("Mouse Y");
-        verticalRotation = Mathf.Clamp(verticalRotation, downLimit, upLimit);
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (isMenueActive)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                isMenueActive = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                isMenueActive = true;
+            }
+        }
+        if (!isMenueActive)
+        {
+            float h = horizontalSpeed * Input.GetAxis("Mouse X");
+            verticalRotation -= verticalSpeed * Input.GetAxis("Mouse Y");
+            verticalRotation = Mathf.Clamp(verticalRotation, downLimit, upLimit);
 
-        transform.Rotate(0, h, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+            transform.Rotate(0, h, 0);
+            Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        }
     }
 }

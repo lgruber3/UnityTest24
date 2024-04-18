@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menu;
     private GameObject[] menuElements;
+    
 
     private void Start()
     {
