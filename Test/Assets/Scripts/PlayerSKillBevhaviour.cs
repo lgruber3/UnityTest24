@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerSKillBevhaviour : MonoBehaviour
 {
-    private List<Skill> acquiredSkills;
+    public List<Skill> acquiredSkills;
     private Dictionary<int, Skill> skillKeyMapping;
-    private Skill currentSkill;
+    public Skill currentSkill;
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,8 @@ public class PlayerSKillBevhaviour : MonoBehaviour
         {
             GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             temp.transform.position = transform.position + transform.forward * 1;
-            temp.GetComponent<MeshRenderer>().material.color = currentSkill.color;
+            temp.GetComponent<MeshRenderer>().material.color = currentSkill.skillData.damageSkillData.color;
+            
             Rigidbody rb = temp.AddComponent<Rigidbody>();
             rb.useGravity = false;
             rb.AddForce(500 * transform.forward * Time.deltaTime, ForceMode.Impulse);

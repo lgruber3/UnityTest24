@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,12 +14,15 @@ public class MovementBehaviour : MonoBehaviour
     public float downLimit = -20f;
 	public float sprintSpeed = 2f;
     private bool isMenueActive = false;
+    private PlayerSKillBevhaviour playerSKillBevhaviour;
+    private bool secondJump = false;
 
 	public StaminaManager staminaManager;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
+        playerSKillBevhaviour = GetComponent<PlayerSKillBevhaviour>();
     }
 
     // Update is called once per frame
@@ -27,10 +31,42 @@ public class MovementBehaviour : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         transform.Translate(new Vector3(x, 0, z) * Time.deltaTime * 5f);
+        
         //jump
-        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(transform.position, Vector3.down, 1.1f))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            if (secondJump && !Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+                foreach (var skill in playerSKillBevhaviour.acquiredSkills)
+                {
+                    if (skill.skillType == ESKillType.Movement)
+                    {
+                        if (skill.skillData.jumpSkillData.canDoubleJump)
+                        {
+                            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+                            secondJump = false;
+                        }
+                        break;
+                    }
+
+                }
+            }
+            else if (!secondJump && Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+                rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+                foreach (var skill in playerSKillBevhaviour.acquiredSkills)
+                {
+                    if (skill.skillType == ESKillType.Movement)
+                    {
+                        if (skill.skillData.jumpSkillData.canDoubleJump)
+                        {
+                            secondJump = true;
+                        }
+                        break;
+                    }
+
+                }
+            }
         }
         
 		//sprint

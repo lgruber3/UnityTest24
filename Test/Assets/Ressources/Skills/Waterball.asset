@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Waterball
   m_EditorClassIdentifier: 
   skillName: Waterball
-  acquired: 1
+  acquired: 0
   id: 3
-  color: {r: 0, g: 0.15127039, b: 1, a: 0}
+  skillType: 0
+  skillData:
+    damageSkillData:
+      damage: 1
+      color: {r: 0.019357419, g: 0.16954795, b: 0.8207547, a: 0}
+    jumpSkillData:
+      jumpForce: 0
+      jumpTime: 0
+      canDoubleJump: 0
   nextSkills: 0400000005000000

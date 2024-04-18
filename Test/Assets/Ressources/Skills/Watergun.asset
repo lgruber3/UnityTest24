@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Watergun
   m_EditorClassIdentifier: 
   skillName: Watergun
-  acquired: 1
+  acquired: 0
   id: 4
-  color: {r: 1, g: 0.050943315, b: 0.7426587, a: 0}
+  skillType: 0
+  skillData:
+    damageSkillData:
+      damage: 1
+      color: {r: 0, g: 0, b: 0, a: 0}
+    jumpSkillData:
+      jumpForce: 0
+      jumpTime: 0
+      canDoubleJump: 0
   nextSkills: 

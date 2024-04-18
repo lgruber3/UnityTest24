@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Iceball
   m_EditorClassIdentifier: 
   skillName: Iceball
-  acquired: 1
+  acquired: 0
   id: 2
-  color: {r: 0, g: 1, b: 0.97622156, a: 0}
+  skillType: 0
+  skillData:
+    damageSkillData:
+      damage: 1
+      color: {r: 0, g: 0.81047535, b: 1, a: 0}
+    jumpSkillData:
+      jumpForce: 0
+      jumpTime: 0
+      canDoubleJump: 0
   nextSkills: 
