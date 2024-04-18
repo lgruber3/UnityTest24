@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1798,6 +1798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562515983a951244c90fc1129e10fc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acquiredSkills: []
+  currentSkill: {fileID: 0}
 --- !u!114 &1291658722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,6 +2288,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fedc0e216e21aff4fb3d39c1dd2d6903, type: 2}
   - {fileID: 11400000, guid: 4c1d57857312df942940503fd0a6d140, type: 2}
   - {fileID: 11400000, guid: 344f4a921dbb33e46ae100b0e128344f, type: 2}
+  - {fileID: 11400000, guid: 66afa1d5c06e3884b9cc6c3b05d987b0, type: 2}
   skillUIPrefab: {fileID: 8143308159808644513, guid: 6f84864cd4dc21d4fb80349efd5dc750, type: 3}
   player: {fileID: 1291658713}
 --- !u!4 &1997874962
