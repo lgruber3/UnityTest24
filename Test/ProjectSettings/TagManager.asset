@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MenuElement
   - Enemy
+  - Waypoint
   layers:
   - Default
   - TransparentFX
