@@ -4,7 +4,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     private Transform player;
     public float speed = 1f;
-    private int hp = 100;
+    public int hp = 100;
     public int currentWaypoint = 0;
     private GameObject[] waypoints;
     private GameObject tower;

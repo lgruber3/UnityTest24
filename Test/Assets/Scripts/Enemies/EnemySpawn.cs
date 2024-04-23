@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemyPrefab; 
+    public List<GameObject> enemyPrefabs; 
     public float spawnRadius = 5f; 
     public int enemyCount = 5; 
     public float spawnInterval = 5f;
@@ -39,6 +39,8 @@ public class EnemySpawn : MonoBehaviour
         spawnPosition.y = 0; 
         
         spawnPosition += transform.position;
+        
+        GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
         
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
