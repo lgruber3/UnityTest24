@@ -5,14 +5,13 @@ public class EnemyBehavior : MonoBehaviour
     public Transform player;
     public float speed = 1f;
     private int hp = 100;
-    public GameObject[] waypoints;
     public int currentWaypoint = 0;
+    private GameObject[] waypoints;
     
     void Start()
     {
-        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        waypoints = WaypointManagerBehaviouir.instance.waypoints;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
     }
 
     void Update()
@@ -25,7 +24,8 @@ public class EnemyBehavior : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
         
         transform.LookAt(waypoints[currentWaypoint].transform.position);
-        
+        transform.Rotate(Vector3.up, -90f);
+
         Debug.DrawRay(transform.position, direction * 6, Color.red);
         Debug.DrawRay(transform.position, transform.forward * 5, Color.blue);
     }
