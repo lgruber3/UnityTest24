@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 16.73
-  waypoints: []
+  speed: 2.5
   currentWaypoint: 0
 --- !u!65 &2202456609185375367
 BoxCollider:

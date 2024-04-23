@@ -8,23 +8,31 @@ public class EnemySpawn : MonoBehaviour
     public float spawnRadius = 5f; 
     public int enemyCount = 5; 
     public float spawnInterval = 5f;
+    public float delay = 3f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemies), spawnInterval, spawnInterval);
+        StartCoroutine(SpawnWave());
     }
 
-    // Method to spawn a set number of enemies
-    void SpawnEnemies()
+    IEnumerator SpawnEnemies()
     {
         for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy();
+            yield return new WaitForSeconds(delay);
         }
     }
 
-    // Method to spawn an enemy
+    IEnumerator SpawnWave()
+    {
+        while (true)
+        {
+            StartCoroutine(SpawnEnemies());
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
     void SpawnEnemy()
     {
         Vector3 spawnPosition = Random.insideUnitSphere * spawnRadius;

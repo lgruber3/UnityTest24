@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float speed = 1f;
     private int hp = 100;
     public int currentWaypoint = 0;
     private GameObject[] waypoints;
+    private GameObject tower;
     
     void Start()
     {
         waypoints = WaypointManagerBehaviouir.instance.waypoints;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        tower = GameObject.FindGameObjectWithTag("Tower");
     }
 
     void Update()
@@ -37,6 +39,12 @@ public class EnemyBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Player>().DecreaseHP();
+        }
+
+        if (other.gameObject.CompareTag("Tower"))
+        {
+            tower.GetComponent<Tower>().DecreaseHP(2);
+            Destroy(gameObject);
         }
     }
     
