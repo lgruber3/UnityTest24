@@ -8,7 +8,9 @@ public class PlayerSKillBevhaviour : MonoBehaviour
 {
     public List<Skill> acquiredSkills;
     private Dictionary<int, Skill> skillKeyMapping;
+    [HideInInspector]
     public Skill currentSkill;
+    public GameObject projectilePrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -33,14 +35,9 @@ public class PlayerSKillBevhaviour : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && currentSkill != null)
         {
-            GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            temp.transform.position = transform.position + transform.forward * 1;
+            GameObject temp = GameObject.Instantiate(projectilePrefab, transform.position + transform.forward * 2, transform.rotation);
             temp.GetComponent<MeshRenderer>().material.color = currentSkill.skillData.damageSkillData.color;
             
-            Rigidbody rb = temp.AddComponent<Rigidbody>();
-            rb.useGravity = false;
-            rb.AddForce(500 * transform.forward * Time.deltaTime, ForceMode.Impulse);
-                
             Debug.Log(currentSkill.skillName + " activated");
         }
     }

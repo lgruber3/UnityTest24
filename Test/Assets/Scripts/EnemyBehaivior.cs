@@ -6,7 +6,8 @@ public class EnemyBehavior : MonoBehaviour
     public float speed = 1f;
     public float roamSpeed = 0.5f;
     private Vector3 roamDirection;
-
+    private int hp = 100;
+    
     void Start()
     {
         // Initialize the roam direction
@@ -80,6 +81,17 @@ public class EnemyBehavior : MonoBehaviour
         {
             // Call a method on the player to decrease their HP
             player.GetComponent<Player>().DecreaseHP();
+        }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        
+        if (hp <= 0)
+        {
+            // Destroy the enemy
+            Destroy(gameObject);
         }
     }
 }
