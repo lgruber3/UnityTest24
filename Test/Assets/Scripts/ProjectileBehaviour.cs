@@ -6,6 +6,11 @@ using Vector3 = System.Numerics.Vector3;
 
 public class ProjectileBehaviour : MonoBehaviour
 {
+    private void Start()
+    {
+        StartCoroutine(DestroyAfterSeconds(3));
+    }
+    
     private void Update()
     {
         transform.position += transform.forward * Time.deltaTime * 10;
@@ -18,5 +23,11 @@ public class ProjectileBehaviour : MonoBehaviour
             other.GetComponent<EnemyBehavior>().TakeDamage(100);
             Destroy(gameObject);
         }
+    }
+    
+    IEnumerator DestroyAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
     }
 }

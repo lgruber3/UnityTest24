@@ -74,10 +74,11 @@ public class EnemyBehavior : MonoBehaviour
         return new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
     }
 
-    void OnTriggerEnter(Collider other)
+    
+    void OnCollisionEnter(Collision other)
     {
         // Check if the enemy has touched the player
-        if (other.transform == player)
+        if (other.gameObject.CompareTag("Player"))
         {
             // Call a method on the player to decrease their HP
             player.GetComponent<Player>().DecreaseHP();
