@@ -20,6 +20,8 @@ MonoBehaviour:
     damageSkillData:
       damage: 1
       color: {r: 0, g: 0, b: 0, a: 0}
+      projectilePrefab: {fileID: 5778882849913700577, guid: 065b2d264b3f365429dd88f9a2a656a5, type: 3}
+      player: {fileID: 0}
     jumpSkillData:
       jumpForce: 0
       jumpTime: 0

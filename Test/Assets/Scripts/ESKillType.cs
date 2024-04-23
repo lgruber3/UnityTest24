@@ -2,7 +2,8 @@
 {
     public enum ESKillType
     {
-        Damage,
-        Movement
+        Projectile,
+        Jump,
+        Beam
     }
 }

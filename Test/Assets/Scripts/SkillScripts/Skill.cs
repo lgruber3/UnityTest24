@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Skill")]
+
+[CreateAssetMenu(fileName = "New Skill", menuName = "Skill")]
 public class Skill : ScriptableObject
 {
     public string skillName;
@@ -18,14 +19,39 @@ public class Skill : ScriptableObject
     {
         switch (skillType)
         {
-            case ESKillType.Damage:
-                if (skillData.damageSkillData == null)
-                    skillData.damageSkillData = new DamageSkillData();
+            case ESKillType.Projectile:
+                if (skillData.projectileSkillData == null)
+                {
+                    skillData.projectileSkillData = new ProjectileSkillData();
+                }
                 break;
-            case ESKillType.Movement:
+            case ESKillType.Jump:
                 if (skillData.jumpSkillData == null)
                     skillData.jumpSkillData= new JumpSkillData();
                 break;
+            case ESKillType.Beam:
+                if (skillData.beamSkillData == null)
+                {
+                    skillData.beamSkillData = new BeamSkillData();
+                }
+                break;
+        }
+    }
+    
+    public void Activate()
+    {
+        switch (skillType)
+        {
+            case ESKillType.Projectile:
+            {
+                skillData.projectileSkillData.Activate();
+                break;
+            }
+            case ESKillType.Beam:
+            {
+                skillData.beamSkillData.Activate();
+                break;
+            }
         }
     }
 }

@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: Waterball
   m_EditorClassIdentifier: 
   skillName: Waterball
-  acquired: 0
+  acquired: 1
   id: 3
   skillType: 0
   skillData:
-    damageSkillData:
-      damage: 1
-      color: {r: 0.019357419, g: 0.16954795, b: 0.8207547, a: 0}
+    projectileSkillData:
+      damage: 0
+      color: {r: 0.023584902, g: 0.09845612, b: 1, a: 0}
+      projectilePrefab: {fileID: 5778882849913700577, guid: 065b2d264b3f365429dd88f9a2a656a5, type: 3}
     jumpSkillData:
       jumpForce: 0
       jumpTime: 0
       canDoubleJump: 0
+    beamSkillData:
+      duration: 0
+      damage: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
   nextSkills: 0400000005000000

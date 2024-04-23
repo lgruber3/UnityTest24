@@ -39,7 +39,7 @@ public class MovementBehaviour : MonoBehaviour
             {
                 foreach (var skill in playerSKillBevhaviour.acquiredSkills)
                 {
-                    if (skill.skillType == ESKillType.Movement)
+                    if (skill.skillType == ESKillType.Jump)
                     {
                         if (skill.skillData.jumpSkillData.canDoubleJump)
                         {
@@ -56,7 +56,7 @@ public class MovementBehaviour : MonoBehaviour
                 rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
                 foreach (var skill in playerSKillBevhaviour.acquiredSkills)
                 {
-                    if (skill.skillType == ESKillType.Movement)
+                    if (skill.skillType == ESKillType.Jump)
                     {
                         if (skill.skillData.jumpSkillData.canDoubleJump)
                         {

@@ -11,6 +11,7 @@ public class PlayerSKillBevhaviour : MonoBehaviour
     [HideInInspector]
     public Skill currentSkill;
     public GameObject projectilePrefab;
+    private int skillCount = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -35,16 +36,17 @@ public class PlayerSKillBevhaviour : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && currentSkill != null)
         {
-            GameObject temp = GameObject.Instantiate(projectilePrefab, transform.position + transform.forward * 2, transform.rotation);
-            temp.GetComponent<MeshRenderer>().material.color = currentSkill.skillData.damageSkillData.color;
-            
-            Debug.Log(currentSkill.skillName + " activated");
+            currentSkill.Activate();
         }
     }
     
     public void AcquireSkill(Skill skill)
     {
         acquiredSkills.Add(skill);
-        skillKeyMapping[acquiredSkills.Count] = skill;
+        if (skill.skillType != ESKillType.Jump)
+        {
+            skillKeyMapping[skillCount+1] = skill;
+            skillCount++;
+        }
     }
 }

@@ -16,11 +16,14 @@ public class SkillEditor : Editor
 
         switch (skill.skillType)
         {
-            case ESKillType.Damage:
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("skillData.damageSkillData"));
+            case ESKillType.Projectile:
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("skillData.projectileSkillData"));
                 break;
-            case ESKillType.Movement:
+            case ESKillType.Jump:
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("skillData.jumpSkillData"));
+                break;
+            case ESKillType.Beam:
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("skillData.beamSkillData"));
                 break;
         }
 

@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: Firewater
   m_EditorClassIdentifier: 
   skillName: Firewater
-  acquired: 0
+  acquired: 1
   id: 5
-  skillType: 0
+  skillType: 2
   skillData:
     damageSkillData:
       damage: 1
       color: {r: 1, g: 0, b: 0.9208169, a: 0}
+      projectilePrefab: {fileID: 5778882849913700577, guid: 065b2d264b3f365429dd88f9a2a656a5, type: 3}
     jumpSkillData:
       jumpForce: 0
       jumpTime: 0
       canDoubleJump: 0
+    beamSkillData:
+      duration: 0
+      damage: 0
+      color: {r: 0.529999, g: 0.9245283, b: 0.24857599, a: 0}
   nextSkills: 
