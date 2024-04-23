@@ -12,6 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     void Update()
@@ -22,6 +23,11 @@ public class EnemyBehavior : MonoBehaviour
         }
         Vector3 direction = (waypoints[currentWaypoint].transform.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
+        
+        transform.LookAt(waypoints[currentWaypoint].transform.position);
+        
+        Debug.DrawRay(transform.position, direction * 6, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * 5, Color.blue);
     }
 
     
