@@ -26,7 +26,7 @@ public class EnemyBehavior : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
         
         transform.LookAt(waypoints[currentWaypoint].transform.position);
-        transform.Rotate(Vector3.up, -90f);
+        transform.Rotate(Vector3.up, -900f);
 
         Debug.DrawRay(transform.position, direction * 6, Color.red);
         Debug.DrawRay(transform.position, transform.forward * 5, Color.blue);
